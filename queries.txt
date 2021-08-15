@@ -1,18 +1,119 @@
-## Selecionando Pizzaria pela chave (nome)
+## Selecionando todas as informações da chave Pizzaria:nome
 127.0.0.1:6379> HGETALL Pizzaria:"Pizzaria Barretos 01"
 1) "endereco"
 2) "Avenida 35, 0446"
 
 
-## Selecionando endereço da Pizzaria "Pizzaria Barretos 01"
+## Selecionando valor da chave Pizzaria:nome
 127.0.0.1:6379> HMGET Pizzaria:"Pizzaria Barretos 01" endereco
 1) "Avenida 35, 0446"
 
-## Selecionando Funcionario pela chave (nome)
+## Selecionando todas as informações da chave Funcionário:nome
 127.0.0.1:6379> HGETAll Funcionario:"000.111.222-33"
 1) "nome"
 2) "Michael"
 3) "cargo"
 4) "CEO"
 
+## Selecionando cargo do Funcionário "000.111.222-33"
+127.0.0.1:6379> HMGET Funcionario:"000.111.222-33" cargo
+1) "CEO"
+
+## Selecionando todas as informações da chave Cargo:CEO
+127.0.0.1:6379> HGETALL Cargo:"CEO"
+1) "salario"
+2) "700000"
+
+## Selecionando chave Contratos:nome_pizzaria
+(retorna os identificadores de cada contrato)
+127.0.0.1:6379> SMEMBERS Contratos:"Pizzaria Barretos 01"
+1) "1"
+2) "2"
+
+## Buscando por todas as chaves de Contrato
+127.0.0.1:6379> Keys Contrato:*
+1) "Contrato:3"
+2) "Contrato:4"
+3) "Contrato:2"
+4) "Contrato:1"
+
+## Selecionando todos os dados da chave Contrato:1
+127.0.0.1:6379> HGETALL Contrato:1
+1) "inicio"
+2) "02-01-1998"
+3) "fim"
+4) "02-01-2028"
+5) "Funcionario"
+6) "000.111.222-33"
+
+## Buscando por todas as chaves Cliente
+127.0.0.1:6379> KEYS Cliente:*
+1) "Cliente:111.111.111-22"
+2) "Cliente:222.222.222-33"
+3) "Cliente:333.333.333-44"
+4) "Cliente:444.444.444-55"
+
+## Selecionando todos os dados da chave Cliente:cpf
+127.0.0.1:6379> HGETALL Cliente:"111.111.111-22"
+1) "nome"
+2) "Geraldo Santos"
+3) "telefone"
+4) "12 99999-9999"
+5) "endereco"
+6) "Avenida 21, 99"
+
+## Selecionando todos os dados da chave Pizza
+127.0.0.1:6379> HGETALL Pizza:"Presunto"
+1) "ingredientes"
+2) "Presunto, Mussarela, Tomate"
+3) "preco"
+4) "30.00"
+
+## Buscando por todas as chaves Pedidos
+127.0.0.1:6379> KEYS Pedidos:*
+1) "Pedidos:Pizzaria:Pizzaria Barretos 02"
+2) "Pedidos:Pizzaria:Pizzaria Barretos 01"
+3) "Pedidos:Pizza:Presunto"
+4) "Pedidos:Bebida:Refrigerante"
+5) "Pedidos:Bebida:Agua"
+6) "Pedidos:Cliente:222.222.222-33"
+7) "Pedidos:Cliente:333.333.333-44"
+8) "Pedidos:Cliente:111.111.111-22"
+9) "Pedidos:Pizza:Calabresa"
+
+## Pesquisando por todas as chaves Pedidos de clientes 
+127.0.0.1:6379> KEYS Pedidos:Cliente:*
+1) "Pedidos:Cliente:222.222.222-33"
+2) "Pedidos:Cliente:333.333.333-44"
+3) "Pedidos:Cliente:111.111.111-22"
+
+## Pesquisando pelos pedidos feitos pelo Cliente "111.111.111-22"
+127.0.0.1:6379> SMEMBERS Pedidos:Cliente:"111.111.111-22"
+1) "1"
+2) "2"
+
+## Pesquisando pelos pedidos recebidos na pizzaria Pizzaria "Pizzaria Barretos 01"
+127.0.0.1:6379> SMEMBERS Pedidos:Pizzaria:"Pizzaria Barretos 01"
+1) "1"
+2) "2"
+3) "3"
+
+## Pesquisando pelo sabor "Presunto" da pizza do pedido
+127.0.0.1:6379> SMEMBERS Pedidos:Pizza:"Presunto"
+1) "1"
+2) "4"
+
+## Pesquisando pela bebida "Refigerante" do pedido
+127.0.0.1:6379> SMEMBERS Pedidos:Bebida:Refrigerante
+1) "1"
+2) "2"
+
+## Buscando intersecção entre os pedidos do Cliente "111.111.111-22", da pizzaria "Pizzaria Barretos 01", com sabor "Presunto" e bebida "Refrigerante
+127.0.0.1:6379> SINTER Pedidos:Cliente:"111.111.111-22" Pedidos:Pizzaria:"Pizzaria Barretos 01" Pedidos:Pizza:"Presunto" Pedidos:Bebida:"Refrigerante"
+1) "1"
+
+## Pesquisando o conteúdo da chave Pedido:1
+127.0.0.1:6379> HGETALL Pedido:1
+1) "data"
+2) "02-01-2021"
 
