@@ -1,0 +1,18 @@
+## Selecionando Pizzaria pela chave (nome)
+127.0.0.1:6379> HGETALL Pizzaria:"Pizzaria Barretos 01"
+1) "endereco"
+2) "Avenida 35, 0446"
+
+
+## Selecionando endereço da Pizzaria "Pizzaria Barretos 01"
+127.0.0.1:6379> HMGET Pizzaria:"Pizzaria Barretos 01" endereco
+1) "Avenida 35, 0446"
+
+## Selecionando Funcionario pela chave (nome)
+127.0.0.1:6379> HGETAll Funcionario:"000.111.222-33"
+1) "nome"
+2) "Michael"
+3) "cargo"
+4) "CEO"
+
+
