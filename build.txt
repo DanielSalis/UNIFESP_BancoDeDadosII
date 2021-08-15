@@ -17,11 +17,6 @@ SADD Contratos:"Pizzaria Barretos 02" 3 4
 HMSET Cargo:CEO salario "700000"
 HMSET Cargo:CTO salario "350000"
 
-HMSET contrato: 1 data "02-01-1998"
-HMSET contrato: 2 data "02-01-1998"
-HMSET contrato: 3 data "05-02-1998"
-HMSET contrato: 4 data "05-02-1998"
-
 HMSET Cliente:"111.111.111-22" nome "Geraldo Santos" telefone "12 99999-9999" endereco "Avenida 21, 99"
 HMSET Cliente:"222.222.222-33" nome "José da Silva" telefone "12 88888-9999" endereco "Avenida 11, 88"
 HMSET Cliente:"333.333.333-44" nome "Eduardo da Amorim" telefone "12 77777-9999" endereco "Avenida 55, 254"
