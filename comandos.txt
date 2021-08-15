@@ -1,0 +1,16 @@
+## Comandos úteis
+FLUSHDB            --Apaga banco inteiro
+SADD myset "Hello" --Adiciona item ao set
+SMEMBERS myset:id  --Retorna os membros do set
+DEL myhash         --Deleta a hash 
+
+## Subindo o container
+* Abra um terminal dentro do diretório
+* execute "sudo docker-compose up"
+
+## Acessando o container
+* Abra outro terminal sem fechar o primeiro
+* execute "sudo docker cp ./queries.txt redis-db:/data"
+* execute "sudo docker-compose exec redis bash" 
+* execute "cat queries.txt | redis-cli --pipe"
+
