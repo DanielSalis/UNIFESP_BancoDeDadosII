@@ -10,7 +10,7 @@ DEL myhash         --Deleta a hash
 
 ## Acessando o container
 * Abra outro terminal sem fechar o primeiro
-* execute "sudo docker cp ./queries.txt redis-db:/data"
+* execute "sudo docker cp ./build.txt redis-db:/data"
 * execute "sudo docker-compose exec redis bash" 
-* execute "cat queries.txt | redis-cli --pipe"
+* execute "cat build.txt | redis-cli --pipe"
 
