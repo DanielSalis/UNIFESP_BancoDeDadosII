@@ -26,3 +26,9 @@ Instruções para uso (linux ,mac ou windows utilizando wsl2):
 * SADD myset "Hello" --Adiciona item ao set
 * SMEMBERS myset:id  --Retorna os membros do set
 * DEL myhash         --Deleta a hash 
+
+
+## Dependências
+* [Docker](https://www.docker.com/)
+* [Redis](https://redis.io/documentation)
+* [git](https://git-scm.com/)
