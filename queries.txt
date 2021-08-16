@@ -117,3 +117,16 @@
 1) "data"
 2) "02-01-2021"
 
+## Exemplo de update do nome de um Cliente
+127.0.0.1:6379> HSET Cliente:"111.111.111-22" nome "Matheus Gomes"
+(integer) 0
+
+## Conferindo a mudança
+127.0.0.1:6379> HGETALL Cliente:"111.111.111-22"
+1) "nome"
+2) "Matheus Gomes"
+3) "telefone"
+4) "12 99999-9999"
+5) "endereco"
+6) "Avenida 21, 99"
+127.0.0.1:6379> 
