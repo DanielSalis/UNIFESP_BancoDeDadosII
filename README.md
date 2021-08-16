@@ -28,5 +28,7 @@ Instruções para uso (linux ,mac ou windows utilizando wsl2):
 * DEL myhash         --Deleta a hash 
 
 
-## Links
+## Dependências
 * [Docker](https://www.docker.com/)
+* [Redis](https://redis.io/documentation)
+* [git](https://git-scm.com/)
